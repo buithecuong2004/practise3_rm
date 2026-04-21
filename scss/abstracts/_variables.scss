@@ -1,0 +1,23 @@
+// Colors (User provided)
+$color-primary: #A69889;
+$color-secondary: #B6D1C1;
+$color-light: #F2EADB;
+$color-accent: #D8A17C;
+$color-blue-gray: #60869D;
+$color-beige: #E6C896;
+$color-dark-green: #496B5F;
+
+// Basic Colors
+$white: #ffffff;
+$dark-color: #212529;
+
+// Semantic Colors
+$primary-color: $color-dark-green;
+$secondary-color: $color-blue-gray;
+$light-color: $white; // Background white as requested
+
+// Transitions
+$transition-base: all 0.3s ease-in-out;
+
+// Fonts
+$font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;

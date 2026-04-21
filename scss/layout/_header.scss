@@ -1,0 +1,146 @@
+.l-header {
+  position: relative;
+  z-index: 100;
+  background-color: $white;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    padding-left: 1.5rem;
+
+    @include respond-to('lg') {
+      padding-left: 5rem;
+    }
+  }
+
+  &__logo-box {
+    padding: 1.5rem 0;
+  }
+
+  &__logo {
+    width: 200px;
+    height: auto;
+
+    @include respond-to('md') {
+      width: 300px;
+    }
+  }
+
+  &__hamburger {
+    font-size: 1.5rem;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    color: $color-dark-green;
+
+    @include respond-to('lg') {
+      display: none;
+    }
+  }
+
+  &__nav {
+    background-color: $color-dark-green;
+    border-bottom-left-radius: 4rem;
+    display: flex;
+    align-items: center;
+
+    @include respond-to('lg') {
+      border-bottom-left-radius: 8rem;
+    }
+  }
+
+  &__list {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0 2rem;
+    margin: 0;
+
+    @include respond-to('lg') {
+      padding: 0 5rem;
+      gap: 2rem;
+    }
+  }
+
+  &__item {
+    list-style: none;
+    padding: 1.5rem 0;
+  }
+
+  &__link {
+    color: $white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+
+    @include respond-to('lg') {
+      font-size: 1rem;
+    }
+
+    &:hover {
+      color: $color-beige;
+    }
+  }
+}
+
+// Sidebar logic
+.l-sidebar {
+  position: fixed;
+  top: 0;
+  left: -300px; // Hidden by default
+  width: 300px;
+  height: 100vh;
+  background-color: $color-dark-green;
+  z-index: 1001;
+  transition: $transition-base;
+  padding: 2rem;
+
+  &--active {
+    left: 0;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 2rem;
+  }
+
+  &__close {
+    font-size: 1.5rem;
+    color: $white;
+    cursor: pointer;
+  }
+
+  &__list {
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    margin-bottom: 1.5rem;
+  }
+
+  &__link {
+    color: $white;
+    font-size: 1.1rem;
+    font-weight: 500;
+
+    &:hover {
+      color: $color-beige;
+    }
+  }
+}
+
+.c-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: none;
+
+  &--active {
+    display: block;
+  }
+}

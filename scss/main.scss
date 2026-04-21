@@ -1,0 +1,16 @@
+// 1. Configuration and helpers
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+// 2. Base styles
+@import 'base/reset';
+
+// 3. Layout
+@import 'layout/header';
+
+// 4. Components
+@import 'components/button';
+@import 'components/hero';
+
+// 5. Pages
+// @import 'pages/home';

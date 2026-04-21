@@ -1,0 +1,90 @@
+.c-hero {
+  position: relative;
+  padding: 3rem 1.5rem;
+  overflow: hidden;
+
+  @include respond-to('lg') {
+    padding: 3rem 6rem;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+
+    @include respond-to('lg') {
+      text-align: left;
+    }
+  }
+
+  &__header {
+    max-width: 100%;
+
+    @include respond-to('lg') {
+      max-width: 500px;
+    }
+  }
+
+  &__title {
+    font-size: 3rem;
+    color: $color-dark-green;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+
+    @include respond-to('lg') {
+      font-size: 6rem;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1.5rem;
+    color: $color-blue-gray;
+    font-weight: 300;
+
+    @include respond-to('lg') {
+      font-size: 2.5rem;
+    }
+  }
+
+  &__img-box {
+    margin-top: 3rem;
+    @include flex-center;
+
+    @include respond-to('lg') {
+      margin-top: 0;
+      justify-content: flex-end;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    max-width: 626px;
+    border-top-left-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+
+    @include respond-to('lg') {
+      border-top-left-radius: 10rem;
+      border-bottom-right-radius: 10rem;
+    }
+  }
+
+  &__decoration-circle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background: $color-blue-gray;
+    border-radius: 0 0 0 100%;
+    z-index: -1;
+    opacity: 0.3;
+
+    @include respond-to('lg') {
+      width: 550px;
+      height: 550px;
+      opacity: 1;
+    }
+  }
+}

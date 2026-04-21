@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family-sans-serif;
+  line-height: 1.6;
+  color: $dark-color;
+  background-color: $light-color;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  @include transition($transition-base);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
