@@ -3,16 +3,19 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  padding: 0.8rem 1.5rem;
-  font-weight: 600;
+  padding: 0.7rem 1.4rem;
+  font-size: 1rem;
+  font-weight: 300;
   cursor: pointer;
   border: none;
   @include transition($transition-base);
   width: fit-content;
   margin: 0 auto;
+  white-space: nowrap;
 
   @include respond-to('lg') {
     margin: 0;
+    font-size: 1.5rem;
   }
 
   &--accent {
@@ -32,10 +35,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     border: 1px solid $white;
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 }

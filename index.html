@@ -98,62 +98,164 @@
             <div class="c-hero__decoration-circle"></div>
         </section>
 
+        <!-- Sub Header — reusable between sections -->
+        <header class="c-sub-header">
+            <img src="./assets/images/logo.jpg" alt="logo" class="c-sub-header__logo">
+            <nav class="c-sub-header__nav d-none d-md-block">
+                <ul class="c-sub-header__list">
+                    <li class="c-sub-header__item">Về Vin Nexus Center</li>
+                    <li class="c-sub-header__item">Chương Trình Đào Tạo & Can Thiệp</li>
+                    <li class="c-sub-header__item">Tuyển Sinh</li>
+                    <li class="c-sub-header__item">Liên Hệ</li>
+                </ul>
+            </nav>
+        </header>
+
         <!-- Info Section -->
         <section class="c-info-section">
             <div class="container">
-                <header class="c-info-section__sub-header">
-                    <img src="./assets/images/logo.jpg" alt="logo" class="c-info-section__sub-logo">
-                    <nav class="c-info-section__sub-nav d-none d-md-block">
-                        <ul class="c-info-section__sub-list">
-                            <li class="c-info-section__sub-item">Về Vin Nexus Center</li>
-                            <li class="c-info-section__sub-item">Chương Trình Đào Tạo & Can Thiệp</li>
-                            <li class="c-info-section__sub-item">Tuyển Sinh</li>
-                            <li class="c-info-section__sub-item">Liên Hệ</li>
-                        </ul>
-                    </nav>
-                </header>
-                
                 <div class="c-info-section__bg">
-                    <h2 class="c-info-section__bg-header">Thấu hiểu những <span class="d-block fw-bold">trăn trở của gia đình</span> có con cần <br/> giáo dục đặc biệt ...</h2>
-                    
+                    <h1 class="c-info-section__bg-header">Thấu hiểu những <p>trăn trở của gia đình</p> có con cần <br />
+                        giáo dục đặc biệt ...</h1>
+
                     <div class="c-info-slider">
                         <div class="c-info-slider__content" id="infoSliderContent">
                             <div class="c-info-slider__slide c-info-slider__slide--1">
-                                <img src="./assets/images/semicolon111.png" alt="semicolon" class="c-info-slider__semicolon">
+                                <img src="./assets/images/semicolon111.png" alt="semicolon"
+                                    class="c-info-slider__semicolon">
                                 <p class="c-info-slider__text-1">Tôi sợ đánh giá sai, mỗi nơi một kết quả khác nhau.</p>
                             </div>
                             <div class="c-info-slider__slide c-info-slider__slide--2">
-                                <img src="./assets/images/semicolon222.png" alt="semicolon" class="c-info-slider__semicolon c-info-slider__semicolon--2">
-                                <p class="c-info-slider__text-2">Con còn nhỏ quá, tôi không biết đâu là thời điểm phù hợp để can thiệp.</p>
+                                <img src="./assets/images/semicolon222.png" alt="semicolon"
+                                    class="c-info-slider__semicolon c-info-slider__semicolon--2">
+                                <p class="c-info-slider__text-2">Con còn nhỏ quá, tôi không biết đâu là thời điểm phù
+                                    hợp để can thiệp.</p>
                             </div>
                         </div>
-                        
-                        <div class="c-info-slider__controls-mobile">
-                            <button class="c-info-slider__nav c-info-slider__nav--left" id="btnSlideLeft">
-                                <i class="fa-solid fa-chevron-left"></i>
-                            </button>
-                            
-                            <div class="c-info-slider__dots" id="infoSliderDots">
-                                <button class="c-info-slider__dot c-info-slider__dot--active" data-index="0"></button>
-                                <button class="c-info-slider__dot" data-index="1"></button>
-                                <button class="c-info-slider__dot" data-index="2"></button>
-                            </div>
 
-                            <button class="c-info-slider__nav c-info-slider__nav--right" id="btnSlideRight">
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </button>
+                        <i class="fa-solid fa-chevron-left c-info-slider__nav c-info-slider__nav--left"
+                            id="btnSlideLeft"></i>
+                        <i class="fa-solid fa-chevron-right c-info-slider__nav c-info-slider__nav--right"
+                            id="btnSlideRight"></i>
+
+                        <div class="c-info-slider__dots" id="infoSliderDots">
+                            <span class="c-info-slider__dot c-info-slider__dot--active" data-index="0"></span>
+                            <span class="c-info-slider__dot" data-index="1"></span>
+                            <span class="c-info-slider__dot" data-index="2"></span>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="c-info-section__details">
                     <h2 class="c-info-section__details-header">
-                        <span class="fw-bold">Vin Nexus Center</span> mang tới một ngôi trường cho trẻ có nhu cầu giáo dục đặc biệt
+                        <span class="fw-bold">Vin Nexus Center</span> mang tới một ngôi trường cho trẻ có nhu cầu giáo
+                        dục đặc biệt
                         chuẩn quốc tế - thấu cảm - cá nhân hóa
                     </h2>
                     <p class="c-info-section__details-content">
-                        Được Tập đoàn Vingroup đầu tư bài bản theo mô hình giáo dục phi lợi nhuận và phát triển trên nền tảng các tiêu chuẩn quốc tế hàng đầu, Vin Nexus Center
-                        sở hữu những lợi thế nổi bật, hướng tới kiến tạo một hệ sinh thái giáo dục an toàn và bền vững cho trẻ từ 2–18 tuổi có nhu cầu giáo dục đặc biệt, giúp các em từng bước hình thành năng lực học tập độc lập, kỹ năng sống và khả năng hòa nhập xã hội.
+                        Được Tập đoàn Vingroup đầu tư bài bản theo mô hình giáo dục phi lợi nhuận và phát triển trên nền
+                        tảng các tiêu chuẩn quốc tế hàng đầu, Vin Nexus Center
+                        sở hữu những lợi thế nổi bật, hướng tới kiến tạo một hệ sinh thái giáo dục an toàn và bền vững
+                        cho trẻ từ 2–18 tuổi có nhu cầu giáo dục đặc biệt, giúp các em từng bước hình thành năng lực học
+                        tập độc lập, kỹ năng sống và khả năng hòa nhập xã hội.
+                    </p>
+                </div>
+            </div>
+        <!-- About Section -->
+        <section class="c-about">
+            <div class="c-about__content">
+                <h1 class="c-about__title">Về <p>Vin Nexus Center</p></h1>
+                <p class="c-about__description">
+                    Vin Nexus Center là trường giáo dục chuyên biệt chuẩn quốc tế, phát triển dựa trên 5 trụ cột nền tảng:
+                    hợp tác chuyên môn quốc tế, chương trình cá nhân hóa, đội ngũ chuyên gia chuẩn hóa,
+                    hệ sinh thái công nghệ tiên tiến và môi trường học tập tối ưu cho trẻ.
+                </p>
+
+                <!-- Normal Cards View -->
+                <div class="c-about__cards" id="aboutCards">
+                    <!-- Card 1 -->
+                    <div class="c-about__card" data-index="0">
+                        <img src="./assets/images/img_card_1.jpg" alt="about-img" class="c-about__card-img">
+                        <div class="c-about__card-body">
+                            <h2 class="c-about__card-title">HỢP TÁC CHUYÊN MÔN SÂU RỘNG VỚI CÁC TỔ CHỨC HÀNG ĐẦU THẾ GIỚI</h2>
+                            <div class="c-about__card-text-wrapper">
+                                <p class="c-about__card-text truncated">Nhằm đảm bảo đáp ứng các tiêu chuẩn quốc tế hàng đầu trong mọi hoạt động, Vin Nexus Center hợp tác chiến lược với The New England Center for Children (NECC) – một trong những tổ chức hàng đầu thế giới về giáo dục và can thiệp tự kỷ. Thông qua quan hệ đối tác này, chúng tôi áp dụng các phương pháp can thiệp dựa trên bằng chứng khoa học, chuẩn hóa quy trình đánh giá và xây dựng chương trình phù hợp với từng học sinh. Bên cạnh đó, đội ngũ chuyên gia quốc tế thường xuyên tham gia tập huấn, giám sát và cố vấn chuyên môn tại chỗ để đảm bảo chất lượng dịch vụ luôn đạt chuẩn toàn cầu.</p>
+                                <button class="c-about__see-more js-expand-card">xem thêm</button>
+                            </div>
+                            <span class="c-about__arrow js-expand-card"><i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="c-about__card" data-index="1">
+                        <img src="./assets/images/img_card_2.jpg" alt="about-img" class="c-about__card-img">
+                        <div class="c-about__card-body">
+                            <h2 class="c-about__card-title">CHƯƠNG TRÌNH CÁ NHÂN HÓA VÀ LỘ TRÌNH PHÁT TRIỂN XUYÊN SUỐT</h2>
+                            <div class="c-about__card-text-wrapper">
+                                <p class="c-about__card-text truncated">Mỗi học sinh đều được xây dựng Kế hoạch học tập cá nhân (IEP) riêng biệt, dựa trên kết quả đánh giá chuyên sâu ban đầu và được cập nhật định kỳ theo sự tiến bộ thực tế của từng em. Lộ trình can thiệp không chỉ bao gồm các mục tiêu học thuật mà còn tích hợp phát triển ngôn ngữ, kỹ năng xã hội, kỹ năng tự phục vụ và điều hòa cảm xúc. Phụ huynh được đồng hành xuyên suốt trong toàn bộ quá trình, từ lập kế hoạch đến triển khai và đánh giá hiệu quả can thiệp.</p>
+                                <button class="c-about__see-more js-expand-card">xem thêm</button>
+                            </div>
+                            <span class="c-about__arrow js-expand-card"><i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="c-about__card" data-index="2">
+                        <img src="./assets/images/img_card_3.jpg" alt="about-img" class="c-about__card-img">
+                        <div class="c-about__card-body">
+                            <h2 class="c-about__card-title">ĐỘI NGŨ CHUYÊN MÔN CHUẨN HÓA QUỐC TẾ</h2>
+                            <div class="c-about__card-text-wrapper">
+                                <p class="c-about__card-text truncated">Vin Nexus Center được dẫn dắt bởi đội ngũ nhân sự có bằng cấp uy tín và am hiểu sâu về các rối loạn phát triển, bao gồm các chuyên gia hành vi được chứng nhận quốc tế (BCBA), nhà tâm lý học lâm sàng, chuyên gia ngôn ngữ trị liệu, vật lý trị liệu và hoạt động trị liệu. Tất cả nhân sự đều trải qua quá trình đào tạo bài bản, giám sát thường xuyên và tham gia phát triển chuyên môn liên tục theo tiêu chuẩn quốc tế.</p>
+                                <button class="c-about__see-more js-expand-card">xem thêm</button>
+                            </div>
+                            <span class="c-about__arrow js-expand-card"><i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="c-about__card" data-index="3">
+                        <img src="./assets/images/img_card_4.jpg" alt="about-img" class="c-about__card-img">
+                        <div class="c-about__card-body">
+                            <h2 class="c-about__card-title">ỨNG DỤNG CÔNG NGHỆ TIÊN TIẾN</h2>
+                            <div class="c-about__card-text-wrapper">
+                                <p class="c-about__card-text truncated">Vin Nexus Center đang hợp tác với NECC để tiên phong trong việc tích hợp ACE (Autism Curriculum Encyclopedia) – bộ chương trình giảng dạy kỹ thuật số toàn diện dành riêng cho trẻ tự kỷ. Hệ thống công nghệ bao gồm phần mềm theo dõi tiến độ theo thời gian thực, công cụ hỗ trợ giao tiếp tăng cường (AAC), ứng dụng học tập tương tác và nền tảng báo cáo minh bạch dành cho phụ huynh, giúp tối ưu hóa hiệu quả can thiệp và tăng cường kết nối giữa gia đình và nhà trường.</p>
+                                <button class="c-about__see-more js-expand-card">xem thêm</button>
+                            </div>
+                            <span class="c-about__arrow js-expand-card"><i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expanded View -->
+                <div class="c-about__expanded" id="aboutExpanded">
+                    <button class="c-about__expanded-nav c-about__expanded-nav--prev"><i class="fa-solid fa-chevron-left"></i></button>
+                    <div class="c-about__expanded-content">
+                        <div class="c-about__expanded-img-wrapper">
+                            <img src="" alt="expanded-img" class="c-about__expanded-img" id="expandedImg">
+                        </div>
+                        <div class="c-about__expanded-info">
+                            <h2 class="c-about__expanded-title" id="expandedTitle"></h2>
+                            <p class="c-about__expanded-text" id="expandedText"></p>
+                            <span class="c-about__arrow c-about__arrow--close js-collapse-card"><i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                    <button class="c-about__expanded-nav c-about__expanded-nav--next"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <div class="c-about__bottom">
+                <div class="c-about__slider">
+                    <button class="c-about__slider-btn c-about__slider-btn--left" id="galleryPrev"><i class="fa-solid fa-chevron-left"></i></button>
+                    <div class="c-about__slider-wrapper" id="gallerySlider">
+                        <img src="./assets/images/slider1.jpg" alt="slider1" class="c-about__slider-img main" data-idx="0">
+                        <img src="./assets/images/slider2.jpg" alt="slider2" class="c-about__slider-img side-next-1" data-idx="1">
+                        <img src="./assets/images/slider3.jpg" alt="slider3" class="c-about__slider-img side-next-2" data-idx="2">
+                        <img src="./assets/images/slider4.jpg" alt="slider4" class="c-about__slider-img hidden" data-idx="3">
+                        <img src="./assets/images/slider5.jpg" alt="slider5" class="c-about__slider-img side-prev-1" data-idx="4">
+                    </div>
+                    <button class="c-about__slider-btn c-about__slider-btn--right" id="galleryNext"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <div class="c-about__commitment">
+                    <h2 class="c-about__commitment-title">THIẾT KẾ KHÔNG GIAN CÓ CHỦ ĐÍCH – TỐI ƯU CHO CẢM XÚC & GIÁC QUAN</h2>
+                    <p class="c-about__commitment-text">
+                        Là ngôi trường chuyên biệt đầu tiên tại Việt Nam áp dụng các tiêu chuẩn thiết kế quốc tế khắt khe như WELL Building Standard hay ASPECTSS™️, Vin Nexus Center hướng tới nâng cao sức khỏe, an toàn và khả năng tham gia học tập của học sinh có nhu cầu giáo dục đặc biệt. Cùng với hệ thống đa dạng các phòng chức năng chuyên sâu như bể bơi thủy trị liệu, phòng điều hòa cảm giác, phòng yên tĩnh, không gian giả lập, v.v…, và các khu vực trị liệu ngoài trời được thiết kế có chủ đích, Vin Nexus Center hình thành một môi trường học tập – can thiệp toàn diện, đảm bảo công năng sư phạm phù hợp với từng nhóm học sinh đặc thù.
                     </p>
                 </div>
             </div>

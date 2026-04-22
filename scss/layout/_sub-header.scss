@@ -1,0 +1,149 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+// ============================================================
+// c-sub-header
+// Reusable sticky-style bar with logo + pill navigation.
+// Usage: place between any two sections.
+//
+// Breakpoints:
+//   base        → mobile  (<768px)  : stacked column, no nav
+//   md  (768px) → iPad mini / Air   : row layout, compact nav
+//   lg (1024px) → iPad Pro          : wider margins, larger items
+//   xl (1280px) → desktop           : full spacing
+// ============================================================
+
+.c-sub-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    margin: 0 0 2rem;
+    background-color: $white;
+    border-radius: 2rem;
+    gap: 1rem;
+    overflow: hidden; // Fix: prevent nav from bleeding outside the pill
+
+    // ── iPad mini / Air (768px) ──────────────────────────────
+    @include respond-to('md') {
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0 1.5rem 3rem;
+        border-radius: 4rem;
+        padding: 0rem 1rem;
+        gap: 0.75rem;
+        overflow: visible; // Allow green pill to be visible at md+
+    }
+
+    // ── iPad Pro 11" / 12.9" (1024px) ───────────────────────
+    @include respond-to('lg') {
+        margin: 0 3rem 4rem;
+        border-radius: 5rem;
+        padding: 0.75rem 1.5rem;
+        gap: 1rem;
+    }
+
+    // ── Desktop (1280px+) ────────────────────────────────────
+    @include respond-to('xl') {
+        margin: 0 4rem 0rem;
+    }
+
+    // ── Logo ─────────────────────────────────────────────────
+    &__logo {
+        flex-shrink: 0; // Fix: logo không bị co lại khi nav dài
+        width: 200px;
+        height: auto;
+
+        @include respond-to('md') {
+            width: 220px;
+        }
+
+        @include respond-to('lg') {
+            width: 260px;
+        }
+
+        @include respond-to('xl') {
+            width: 300px;
+        }
+    }
+
+    // ── Nav pill wrapper ──────────────────────────────────────
+    &__nav {
+        background-color: $color-dark-green;
+        padding: 0.5rem;
+        border-radius: 2rem;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+
+        // Fix: tại md, nav không dùng width: auto mà dùng min-width: 0
+        // để cho phép flex shrink khi container không đủ rộng
+        @include respond-to('md') {
+            padding: 0.4rem;
+            border-radius: 3rem;
+            width: auto;
+            min-width: 0; // Fix: allow nav to shrink inside flex row
+            overflow-x: auto; // Fix: scroll thay vì tràn ra ngoài
+            overflow-y: visible;
+        }
+
+        @include respond-to('lg') {
+            padding: 0.5rem;
+            overflow-x: visible;
+        }
+    }
+
+    // ── Nav list ──────────────────────────────────────────────
+    &__list {
+        display: flex;
+        list-style: none;
+        align-items: center;
+        gap: 0.25rem;
+        margin: 0;
+        padding: 0;
+        white-space: nowrap;
+
+        @include respond-to('md') {
+            gap: 0.25rem;
+        }
+
+        @include respond-to('lg') {
+            gap: 0.5rem;
+        }
+
+        @include respond-to('xl') {
+            gap: 1rem;
+        }
+    }
+
+    // ── Nav items ─────────────────────────────────────────────
+    &__item {
+        color: $white;
+        font-size: 0.8rem;
+        padding: 0.4rem 0.6rem;
+        border-radius: 3rem;
+        transition: $transition-base;
+        cursor: pointer;
+
+        @include respond-to('md') {
+            font-size: 0.75rem; // Fix: nhỏ hơn chút để fit iPad mini
+            padding: 0.3rem 0.55rem;
+        }
+
+        @include respond-to('lg') {
+            font-size: 0.9rem;
+            padding: 0.4rem 0.85rem;
+        }
+
+        @include respond-to('xl') {
+            font-size: 1rem;
+            padding: 0.4rem 1rem;
+        }
+
+        &:hover {
+            background-color: $white;
+            color: $color-dark-green;
+        }
+    }
+}

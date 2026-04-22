@@ -1,7 +1,16 @@
 .l-header {
-  position: relative;
-  z-index: 100;
+  position: sticky;
+  top: 0;
+  z-index: 1000; // Increased to ensure it's above everything
   background-color: $white;
+  transition: all 0.3s ease-in-out;
+
+  &--scrolled {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: rgba($white, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
 
   &__inner {
     display: flex;

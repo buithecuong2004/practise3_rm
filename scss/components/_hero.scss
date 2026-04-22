@@ -12,9 +12,11 @@
     flex-direction: column;
     gap: 1.5rem;
     text-align: center;
+    padding-left: 1rem;
 
     @include respond-to('lg') {
       text-align: left;
+      padding-left: 4rem;
     }
   }
 
@@ -82,8 +84,8 @@
     opacity: 0.3;
 
     @include respond-to('lg') {
-      width: 550px;
-      height: 550px;
+      width: 600px;
+      height: 600px;
       opacity: 1;
     }
   }

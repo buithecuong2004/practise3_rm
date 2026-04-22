@@ -1,0 +1,485 @@
+// Relying on global variables from main.scss
+
+.c-about {
+    background-color: $color-light;
+    border-top-right-radius: 10rem;
+    margin-right: 4.25rem;
+    padding: 6rem 0 8rem;
+    position: relative;
+    overflow: hidden;
+
+    @include respond-to('md') {
+        padding: 8rem 0;
+    }
+
+    &__content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+    }
+
+    &__title {
+        font-size: 2.5rem;
+        font-weight: 300;
+        color: $color-dark-green;
+        text-align: center;
+        margin-bottom: 1.5rem;
+
+        @include respond-to('lg') {
+            font-size: 4rem;
+        }
+
+        p {
+            display: inline;
+            font-weight: 700;
+        }
+    }
+
+    &__description {
+        text-align: center;
+        font-size: 1.1rem;
+        color: $dark-color;
+        margin-bottom: 3rem;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+
+        @include respond-to('lg') {
+            font-size: 1.25rem;
+            margin-bottom: 4rem;
+        }
+    }
+
+    // ── Cards List ───────────────────────────────────────────
+    &__cards {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1.5rem;
+        margin-bottom: 4rem;
+
+        @include respond-to('md') {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include respond-to('lg') {
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        &.is-hidden {
+            display: none;
+        }
+    }
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        background-color: $color-secondary;
+        border-top-left-radius: 2.5rem;
+        border-bottom-left-radius: 2.5rem;
+        border-bottom-right-radius: 2.5rem;
+        overflow: hidden;
+        transition: $transition-base;
+        height: 100%;
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+    }
+
+    &__card-img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-top-left-radius: 2.5rem;
+        flex-shrink: 0;
+    }
+
+    &__card-body {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        padding: 1.5rem;
+        gap: 1rem;
+        position: relative;
+    }
+
+    &__card-title {
+        font-size: 1.1rem;
+        margin: 0;
+        color: $color-dark-green;
+        font-weight: 700;
+        line-height: 1.3;
+        min-height: 3em;
+    }
+
+    &__card-text-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    &__card-text {
+        margin: 0;
+        line-height: 1.5;
+        font-size: 0.95rem;
+
+        &.truncated {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    }
+
+    &__see-more {
+        background: none;
+        border: none;
+        color: $color-dark-green;
+        cursor: pointer;
+        text-decoration: underline;
+        padding: 0;
+        text-align: left;
+        align-self: flex-start;
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-top: auto;
+
+        &:hover {
+            color: $color-accent;
+        }
+    }
+
+    &__arrow {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: $color-dark-green;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: flex-end;
+        cursor: pointer;
+        transition: $transition-base;
+        margin-top: 1rem;
+
+        i {
+            color: $white;
+            transform: rotate(-45deg);
+            transition: transform 0.3s ease;
+        }
+
+        &:hover {
+            background: $color-accent;
+        }
+
+        &--close {
+            i {
+                transform: rotate(135deg); // Pointing back/up
+            }
+        }
+    }
+
+    // ── Expanded View ────────────────────────────────────────
+    &__expanded {
+        display: none; // Managed by JS
+        align-items: center;
+        gap: 2rem;
+        margin-bottom: 4rem;
+        position: relative;
+        animation: fadeIn 0.5s ease;
+
+        &.is-visible {
+            display: flex;
+        }
+    }
+
+    &__expanded-nav {
+        background: none;
+        border: none;
+        font-size: 2rem;
+        color: $color-blue-gray;
+        cursor: pointer;
+        transition: $transition-base;
+        padding: 1rem;
+
+        &:hover {
+            color: $color-dark-green;
+            transform: scale(1.1);
+        }
+    }
+
+    &__expanded-content {
+        flex: 1;
+        display: flex;
+        background-color: $white;
+        border-radius: 3rem;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        flex-direction: column;
+
+        @include respond-to('lg') {
+            flex-direction: row;
+            min-height: 500px;
+        }
+    }
+
+    &__expanded-img-wrapper {
+        flex: 1;
+        
+        @include respond-to('lg') {
+            max-width: 50%;
+        }
+    }
+
+    &__expanded-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__expanded-info {
+        flex: 1;
+        padding: 2.5rem;
+        background-color: $color-secondary;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1.5rem;
+
+        @include respond-to('lg') {
+            padding: 4rem;
+        }
+    }
+
+    &__expanded-title {
+        font-size: 1.5rem;
+        color: $color-dark-green;
+        font-weight: 700;
+        margin: 0;
+        line-height: 1.3;
+
+        @include respond-to('lg') {
+            font-size: 2rem;
+        }
+    }
+
+    &__expanded-text {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        margin: 0;
+        color: $dark-color;
+    }
+
+    // ── Bottom Gallery Slider ───────────────────────────────
+    &__bottom {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        padding: 0 1.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+
+        @include respond-to('lg') {
+            flex-direction: row;
+            align-items: center;
+            gap: 4rem;
+        }
+    }
+
+    &__slider {
+        flex: 1.5;
+        height: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        @include respond-to('lg') {
+            height: 550px;
+        }
+    }
+
+    &__slider-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+    &__slider-img {
+        position: absolute;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 2rem;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        cursor: pointer;
+        opacity: 0;
+        transform: scale(0.8);
+        z-index: 1;
+
+        &.main {
+            width: 75%;
+            z-index: 10;
+            left: 50%;
+            transform: translateX(-50%) scale(1);
+            opacity: 1;
+            filter: blur(0);
+
+            @include respond-to('lg') {
+                width: 70%;
+            }
+        }
+
+        &.side-prev-1 {
+            width: 60px;
+            z-index: 5;
+            left: 5%;
+            opacity: 0.6;
+            transform: scale(0.9);
+
+            @include respond-to('lg') {
+                width: 80px;
+                left: 2%;
+            }
+
+            &:hover {
+                opacity: 0.9;
+                width: 100px;
+            }
+        }
+
+        &.side-prev-2 {
+            width: 40px;
+            z-index: 4;
+            left: 0;
+            opacity: 0.3;
+            transform: scale(0.8);
+
+            @include respond-to('lg') {
+                width: 60px;
+                left: -2%;
+            }
+        }
+
+        &.side-next-1 {
+            width: 60px;
+            z-index: 5;
+            right: 5%;
+            opacity: 0.6;
+            transform: scale(0.9);
+
+            @include respond-to('lg') {
+                width: 80px;
+                right: 2%;
+            }
+
+            &:hover {
+                opacity: 0.9;
+                width: 100px;
+            }
+        }
+
+        &.side-next-2 {
+            width: 40px;
+            z-index: 4;
+            right: 0;
+            opacity: 0.3;
+            transform: scale(0.8);
+
+            @include respond-to('lg') {
+                width: 60px;
+                right: -2%;
+            }
+        }
+
+        &.hidden {
+            width: 0;
+            opacity: 0;
+            z-index: 0;
+            pointer-events: none;
+            left: 50%;
+            transform: translateX(-50%) scale(0.5);
+        }
+    }
+
+    &__slider-btn {
+        background: rgba($white, 0.2);
+        backdrop-filter: blur(5px);
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        color: $white;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        transition: $transition-base;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+
+        &:hover {
+            background: $color-blue-gray;
+            color: $white;
+        }
+
+        &--left {
+            left: 10px;
+            @include respond-to('lg') {
+                left: 20px;
+            }
+        }
+
+        &--right {
+            right: 10px;
+            @include respond-to('lg') {
+                right: 20px;
+            }
+        }
+    }
+
+    &__commitment {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    &__commitment-title {
+        font-size: 1.5rem;
+        color: $color-dark-green;
+        margin: 0;
+        font-weight: 700;
+        line-height: 1.3;
+
+        @include respond-to('lg') {
+            font-size: 1.8rem;
+        }
+    }
+
+    &__commitment-text {
+        line-height: 1.6;
+        color: $dark-color;
+        font-size: 1.1rem;
+        margin: 0;
+
+        @include respond-to('lg') {
+            font-size: 1.25rem;
+        }
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

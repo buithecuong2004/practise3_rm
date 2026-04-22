@@ -7,11 +7,13 @@
 
 // 3. Layout
 @import 'layout/header';
+@import 'layout/sub-header';
 
 // 4. Components
 @import 'components/button';
 @import 'components/hero';
 @import 'components/info-section';
+@import 'components/about';
 
 // 5. Pages
 // @import 'pages/home';
