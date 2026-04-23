@@ -1,0 +1,212 @@
+.c-enrollment {
+    padding: 1rem 1.5rem;
+    background-color: $color-primary;
+    position: relative;
+    margin-top: -3rem; // Slight overlap to close gap
+    border-top-left-radius: 6rem;
+
+    @include respond-to('md') {
+        margin-top: -3rem;
+        padding: 1rem;
+        border-top-left-radius: 8rem;
+    }
+
+    @include respond-to('lg') {
+        padding: 6rem 0 2rem 41rem;
+        margin-top: -10rem;
+        min-height: 587px;
+        border-top-left-radius: 0;
+    }
+
+    &__content {
+        @include respond-to('lg') {
+            padding: 0 4rem 2rem 5rem; // Reduced bottom padding
+        }
+    }
+
+    &__title {
+        font-size: 2.5rem;
+        font-weight: 300;
+        color: $white;
+        margin-bottom: 2rem;
+
+        @include respond-to('lg') {
+            font-size: 4rem;
+        }
+    }
+
+    &__text {
+        font-size: 1.1rem;
+        color: $white;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+
+        @include respond-to('lg') {
+            font-size: 1.25rem;
+        }
+    }
+
+    &__note {
+        font-style: italic;
+        font-size: 1.1rem;
+        color: $white;
+        display: block;
+
+        @include respond-to('lg') {
+            font-size: 1.25rem;
+        }
+    }
+
+    &__img-box {
+        margin-top: 1rem;
+        position: relative;
+        z-index: 10;
+        margin-bottom: 3rem;
+        @include flex-center;
+
+        @include respond-to('lg') {
+            position: absolute;
+            top: -150px;
+            left: 0;
+            width: 721px;
+            height: 721px;
+            z-index: 30;
+            transform: none;
+            display: block;
+        }
+    }
+
+    &__img {
+        width: 100%;
+        max-width: 720px; // Limit size on small screens
+        height: auto;
+        object-fit: cover;
+        border-top-left-radius: 6rem;
+
+        @include respond-to('lg') {
+            max-width: none;
+            height: 100%;
+            border-radius: 0;
+            border-top-right-radius: 650px;
+        }
+    }
+
+    &__decoration {
+        display: none;
+
+        @include respond-to('lg') {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0;
+            margin-left: 4rem;
+            position: absolute;
+            bottom: 2rem;
+            left: 42rem;
+        }
+    }
+
+    &__pattern {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0;
+        margin-top: 3rem;
+        z-index: 15;
+
+        @include respond-to('lg') {
+            display: flex;
+            position: absolute;
+            bottom: 0; // Aligned with image foot (620px from top in 650px height)
+            right: 0;
+            margin-top: 0;
+            justify-content: flex-end;
+            width: auto;
+        }
+    }
+
+    &__block {
+        display: grid;
+        grid-template-columns: 12.5px 12.5px;
+        grid-template-rows: 12.5px 12.5px;
+        width: 40px;
+        height: 25px;
+        overflow: hidden;
+        flex-shrink: 0;
+
+        @include respond-to('md') {
+            grid-template-columns: 25px 25px;
+            grid-template-rows: 25px 25px;
+            width: 80px;
+            height: 50px;
+        }
+
+        @include respond-to('lg') {
+            grid-template-columns: 50px 50px;
+            grid-template-rows: 50px 50px;
+            width: 100px;
+            height: 100px;
+        }
+    }
+
+    &__shape {
+        width: 100%;
+        height: 100%;
+
+        // Colors (Mapping to project variables)
+        &.color-green {
+            background-color: $color-dark-green;
+        }
+
+        &.color-mint {
+            background-color: $color-secondary;
+        }
+
+        &.color-orange {
+            background-color: $color-accent;
+        }
+
+        &.color-blue {
+            background-color: $color-blue-gray;
+        }
+
+        &.color-white {
+            background-color: $white;
+        }
+
+        // Quarters
+        &--q-tl {
+            border-top-left-radius: 100%;
+        }
+
+        &--q-tr {
+            border-top-right-radius: 100%;
+        }
+
+        &--q-bl {
+            border-bottom-left-radius: 100%;
+        }
+
+        &--q-br {
+            border-bottom-right-radius: 100%;
+        }
+
+        // Semi-circles
+        &--semi-top {
+            border-radius: 100px 100px 0 0;
+        }
+
+        &--semi-bottom {
+            border-radius: 0 0 100px 100px;
+        }
+
+        // Triangles
+        &--t-bc {
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+        }
+
+        // Utilities
+        &--full-width {
+            grid-column: span 2;
+        }
+    }
+}

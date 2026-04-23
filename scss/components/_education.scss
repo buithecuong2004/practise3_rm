@@ -1,0 +1,453 @@
+.c-education {
+    background-color: $color-dark-green;
+    border-top-left-radius: 5rem;
+    padding: 4rem 0 6rem;
+    position: relative;
+    margin-top: -2rem;
+
+    @include respond-to('md') {
+        border-top-left-radius: 8rem;
+        margin-left: 2rem;
+        padding-bottom: 6rem;
+        top: 0;
+        margin-top: -5rem;
+    }
+
+    @include respond-to('lg') {
+        padding-bottom: 18rem;
+    }
+
+    &__title {
+        font-size: 2rem;
+        font-weight: 300;
+        color: $white;
+        text-align: center;
+        margin-bottom: 3rem;
+
+        @include respond-to('md') {
+            font-size: 3rem;
+        }
+
+        @include respond-to('lg') {
+            font-size: 4rem;
+            padding-top: 5rem;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 0 1.5rem;
+
+        @include respond-to('lg') {
+            flex-direction: row;
+            margin-left: 5rem;
+            gap: 0.75rem;
+            padding: 0;
+        }
+    }
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        padding: 1.5rem;
+        border-top-right-radius: 3rem;
+        border-bottom-left-radius: 3rem;
+        border-bottom-right-radius: 1.5rem;
+        background-color: $color-beige;
+        position: relative;
+        transition: $transition-base;
+        cursor: pointer;
+
+        @include respond-to('lg') {
+            width: 380px;
+            padding: 1.25rem 2rem;
+            border-top-right-radius: 4rem;
+            border-bottom-left-radius: 4rem;
+            border-bottom-right-radius: 2rem;
+        }
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        &:nth-child(1),
+        &:nth-child(3) {
+            background-color: $color-secondary;
+        }
+
+        // Connectors for Desktop
+        @include respond-to('lg') {
+
+            &:nth-child(1)::before,
+            &:nth-child(2)::before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                right: -7%;
+                transform: translateY(-50%);
+                width: 30px;
+                height: 60px;
+                border-top-right-radius: 60px;
+                border-bottom-right-radius: 60px;
+                z-index: 10;
+            }
+
+            &:nth-child(1)::before {
+                background: $color-secondary;
+            }
+
+            &:nth-child(2)::before {
+                background: $color-beige;
+            }
+
+            &:nth-child(1)::after,
+            &:nth-child(2)::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                right: -40px;
+                transform: translateY(-50%);
+                width: 40px;
+                height: 80px;
+                background: $color-dark-green;
+                border-top-right-radius: 80px;
+                border-bottom-right-radius: 80px;
+                z-index: 5;
+            }
+        }
+    }
+
+    &__card-period {
+        font-size: 1.1rem;
+        color: $color-dark-green;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    &__card-title {
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: $color-dark-green;
+        margin-bottom: 1.25rem;
+        line-height: 1.3;
+
+        @include respond-to('lg') {
+            font-size: 1.5rem;
+        }
+    }
+
+    &__card-text-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    &__card-text {
+        font-size: 1rem;
+        color: $dark-color;
+        line-height: 1.5;
+        margin: 0;
+
+        &.is-truncated {
+            display: -webkit-box;
+            -webkit-line-clamp: 6;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+
+            @include respond-to('lg') {
+                -webkit-line-clamp: 9;
+                font-size: 1.25rem;
+            }
+        }
+    }
+
+    &__see-more {
+        background: none;
+        border: none;
+        color: $color-dark-green;
+        cursor: pointer;
+        text-decoration: underline;
+        padding: 0;
+        margin-top: 1rem;
+        text-align: left;
+        font-size: 1rem;
+        font-weight: 500;
+        align-self: flex-start;
+
+        &:hover {
+            color: $white;
+        }
+    }
+
+    &__card-arrow {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: $color-dark-green;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: flex-end;
+        margin-top: 1rem;
+        transition: $transition-base;
+
+        i {
+            color: $white;
+        }
+
+        &:hover {
+            background: $color-accent;
+        }
+    }
+
+    // Modal / Expanded View
+    &__modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+        padding: 1.5rem;
+
+        &.is-visible {
+            display: flex;
+        }
+    }
+
+    &__modal-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(5px);
+    }
+
+    &__modal-container {
+        position: relative;
+        background: $white;
+        width: 100%;
+        max-width: 1100px;
+        border-radius: 3rem;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        animation: modalFadeIn 0.5s ease;
+        z-index: 10;
+
+        @include respond-to('lg') {
+            flex-direction: row;
+            min-height: 600px;
+        }
+    }
+
+    &__modal-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        width: 40px;
+        height: 40px;
+        background: rgba($color-blue-gray, 0.5);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 20;
+        transition: $transition-base;
+
+        @include respond-to('lg') {
+            top: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+        }
+
+        &:hover {
+            background: $color-accent;
+            transform: rotate(90deg);
+        }
+
+        i {
+            color: $white;
+            font-size: 1.5rem;
+        }
+    }
+
+    &__modal-img-box {
+        flex: 1;
+        background-color: $color-light;
+
+        @include respond-to('lg') {
+            max-width: 45%;
+        }
+    }
+
+    &__modal-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__modal-info {
+        flex: 1;
+        padding: 2rem;
+        background-color: $color-dark-green;
+        color: $white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+
+        @include respond-to('lg') {
+            padding: 4rem;
+        }
+
+        // Decoration
+        &::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba($white, 0.1);
+            border-radius: 50%;
+        }
+    }
+
+    &__modal-title {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        line-height: 1.2;
+
+        @include respond-to('lg') {
+            font-size: 3rem;
+        }
+    }
+
+    &__modal-text {
+        font-size: 1rem;
+        line-height: 1.7;
+        margin: 0;
+
+        @include respond-to('lg') {
+            font-size: 1.15rem;
+        }
+    }
+
+    &__modal-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        left: 0;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 1rem;
+        pointer-events: none;
+        z-index: 15;
+
+        @include respond-to('lg') {
+            padding: 0 2rem;
+        }
+    }
+
+    &__modal-btn {
+        width: 50px;
+        height: 50px;
+        background: rgba($white, 0.2);
+        backdrop-filter: blur(5px);
+        border: none;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        pointer-events: auto;
+        transition: $transition-base;
+
+        &:hover {
+            background: $white;
+
+            i {
+                color: $color-dark-green;
+            }
+        }
+
+        i {
+            color: $white;
+            font-size: 1.5rem;
+        }
+    }
+
+    &__decoration {
+        display: grid;
+        position: absolute;
+        top: 0;
+        right: 0;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        width: 50px;
+        height: 50px;
+        z-index: 10;
+
+        @include respond-to('md') {
+            width: 100px;
+            height: 100px;
+        }
+
+        @include respond-to('lg') {
+            width: 200px;
+            height: 200px;
+        }
+    }
+
+    &__quarter {
+        width: 100%;
+        height: 100%;
+
+        &--1 {
+            background-color: $color-blue-gray;
+            border-top-right-radius: 100%;
+        }
+
+        &--2 {
+            background-color: $color-secondary;
+            border-top-right-radius: 100%;
+        }
+
+        &--3 {
+            background-color: $color-accent;
+            border-bottom-left-radius: 100%;
+        }
+
+        &--4 {
+            background-color: $color-blue-gray;
+            border-top-right-radius: 100%;
+        }
+    }
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}

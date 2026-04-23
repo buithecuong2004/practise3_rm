@@ -2,10 +2,10 @@
 @import '../abstracts/mixins';
 
 .c-info-section {
-    padding-top: 1rem;
+    padding-top: 0.25rem;
 
     @include respond-to('md') {
-        padding-top: 2rem;
+        padding-top: 0.25rem;
     }
 
     &__bg {

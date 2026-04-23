@@ -241,6 +241,35 @@ $(document).ready(function () {
         updateExpandedView(currentAboutIdx);
     });
 
+    // ── Touch swipe for About Expanded (mobile) ────────────────
+    let aboutStartX = 0;
+    let aboutStartY = 0;
+
+    $aboutExpanded.on('touchstart', function (e) {
+        aboutStartX = e.originalEvent.touches[0].clientX;
+        aboutStartY = e.originalEvent.touches[0].clientY;
+    });
+
+    $aboutExpanded.on('touchend', function (e) {
+        const dx = aboutStartX - e.originalEvent.changedTouches[0].clientX;
+        const dy = aboutStartY - e.originalEvent.changedTouches[0].clientY;
+
+        // Bỏ qua nếu vuốt dọc nhiều hơn ngang
+        if (Math.abs(dx) < Math.abs(dy)) return;
+        // Ngưỡng tối thiểu 50px
+        if (Math.abs(dx) < 50) return;
+
+        if (dx > 0) {
+            // Vuốt sang trái → card tiếp theo
+            currentAboutIdx = (currentAboutIdx + 1) % aboutData.length;
+            updateExpandedView(currentAboutIdx);
+        } else {
+            // Vuốt sang phải → card trước đó
+            currentAboutIdx = (currentAboutIdx - 1 + aboutData.length) % aboutData.length;
+            updateExpandedView(currentAboutIdx);
+        }
+    });
+
     // ── Gallery Slider Logic ────────────────────────────────
     let galleryIdx = 0;
     const $galleryImages = $('#gallerySlider img');
@@ -286,4 +315,70 @@ $(document).ready(function () {
 
     // Initial gallery setup
     updateGallery();
+
+    // ── Educational Program Modal Logic ─────────────────────
+    const eduData = [
+        {
+            img: "./assets/images/img_card_1.jpg",
+            title: "KHỞI ĐẦU VỮNG CHẮC (2-6 TUỔI)",
+            text: "Trong “giai đoạn vàng” của những năm đầu đời, việc hỗ trợ kịp thời đóng vai trò then chốt giúp giảm thiểu mức độ khó khăn, ngăn ngừa chậm trễ thứ phát và tối ưu hóa tiềm năng phát triển của trẻ. Đồng thời, đây cũng là giai đoạn quan trọng để giúp trẻ hình thành nền tảng học tập, kỹ năng tự phục vụ và khả năng tương tác cơ bản. Chúng tôi tập trung vào việc đánh giá đa chiều để xây dựng lộ trình cá nhân hóa sát thực nhất với từng đặc điểm tâm sinh lý của trẻ, giúp trẻ tự tin hơn trong những bước đi đầu đời."
+        },
+        {
+            img: "./assets/images/img_card_2.jpg",
+            title: "PHÁT TRIỂN TOÀN DIỆN (TIỂU HỌC - THPT)",
+            text: "Bước vào độ tuổi học đường, chương trình giáo dục cần sự linh hoạt để phát triển học thuật phù hợp với khả năng, đồng thời bồi đắp kỹ năng giao tiếp, cảm xúc xã hội và năng lực quản lý hành vi, tự lập. Vin Nexus Center triển khai hai lộ trình linh hoạt: hỗ trợ hòa nhập cho trẻ có khả năng theo học chương trình phổ thông và chương trình chuyên biệt cho trẻ cần sự hỗ trợ chuyên sâu hơn. Chúng tôi không chỉ dạy kiến thức mà còn chú trọng vào việc xây dựng các mối quan hệ xã hội lành mạnh, giúp các em hiểu rõ bản thân và học cách thích nghi với môi trường xung quanh một cách chủ động."
+        },
+        {
+            img: "./assets/images/img_card_3.jpg",
+            title: "HƯỚNG TỚI TƯƠNG LAI (16 - 18 TUỔI)",
+            text: "Việc trang bị kỹ năng nghề và kỹ năng sống phù hợp với năng lực cá nhân đóng vai trò quan trọng trong hành trình giúp học sinh với nhu cầu giáo dục đặc biệt từng bước tự lập và tham gia hiệu quả vào đời sống xã hội. Nhằm hình thành kỹ năng nghề phù hợp để học sinh có thể tham gia lao động, chúng tôi thiết kế các mô hình thực hành giả lập từ làm bánh, pha chế đến tin học văn phòng cơ bản. Mục tiêu cuối cùng là giúp mỗi cá nhân tìm thấy giá trị riêng, có khả năng tự nuôi sống bản thân hoặc ít nhất là giảm bớt gánh nặng chăm sóc cho gia đình, mở ra cánh cửa hòa nhập cộng đồng bền vững."
+        }
+    ];
+
+    let currentEduIdx = 0;
+    const $eduModal = $('#eduModal');
+    const $eduModalImg = $('#eduModalImg');
+    const $eduModalTitle = $('#eduModalTitle');
+    const $eduModalText = $('#eduModalText');
+
+    function updateEduModal(index) {
+        const data = eduData[index];
+        $eduModalImg.fadeOut(200, function() {
+            $(this).attr('src', data.img).fadeIn(200);
+        });
+        $eduModalTitle.text(data.title);
+        $eduModalText.text(data.text);
+        currentEduIdx = index;
+    }
+
+    $('.js-expand-edu, .js-expand-edu-btn').on('click', function (e) {
+        e.stopPropagation();
+        const index = $(this).closest('.c-education__card').data('index');
+        updateEduModal(index);
+        $eduModal.addClass('is-visible');
+        $('body').css('overflow', 'hidden');
+    });
+
+    $('.js-close-edu').on('click', function () {
+        $eduModal.removeClass('is-visible');
+        $('body').css('overflow', 'auto');
+    });
+
+    $('.js-edu-next').on('click', function () {
+        currentEduIdx = (currentEduIdx + 1) % eduData.length;
+        updateEduModal(currentEduIdx);
+    });
+
+    $('.js-edu-prev').on('click', function () {
+        currentEduIdx = (currentEduIdx - 1 + eduData.length) % eduData.length;
+        updateEduModal(currentEduIdx);
+    });
+
+    // Close modal on ESC key
+    $(document).on('keydown', function(e) {
+        if (e.key === "Escape" && $eduModal.hasClass('is-visible')) {
+            $eduModal.removeClass('is-visible');
+            $('body').css('overflow', 'auto');
+        }
+    });
 });

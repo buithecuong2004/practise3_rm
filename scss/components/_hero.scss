@@ -1,10 +1,10 @@
 .c-hero {
   position: relative;
-  padding: 3rem 1.5rem;
-  overflow: hidden;
+  padding: 3rem 1.5rem 0rem 1.5rem;
+  overflow: visible; // Changed from hidden to allow decoration visibility
 
   @include respond-to('lg') {
-    padding: 3rem 6rem;
+    padding: 3rem 6rem 0.5rem 6rem;
   }
 
   &__content {
@@ -35,7 +35,7 @@
     margin-bottom: 0.5rem;
 
     @include respond-to('lg') {
-      font-size: 6rem;
+      font-size: 5rem;
     }
   }
 
@@ -45,7 +45,7 @@
     font-weight: 300;
 
     @include respond-to('lg') {
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
   }
 
@@ -87,6 +87,111 @@
       width: 600px;
       height: 600px;
       opacity: 1;
+    }
+  }
+
+  &__decoration {
+    position: absolute;
+    display: none; // Hide on mobile by default to keep clean
+
+    @include respond-to('lg') {
+      display: block;
+    }
+
+    &--group {
+      bottom: -92px;
+      right: calc(49% + -7px);
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      width: 200px;
+      height: 200px;
+      z-index: -1;
+
+      @include respond-to('lg') {
+        display: grid;
+      }
+    }
+
+    &--square {
+      bottom: -92px;
+      right: calc(15% + 711px);
+      width: 100px;
+      height: 100px;
+      background-color: $color-accent;
+      z-index: -1;
+
+      @include respond-to('lg') {
+        display: block;
+      }
+    }
+
+    &--double {
+      width: 234px;
+      height: 100px;
+      background-color: $color-blue-gray;
+      bottom: -92px;
+      right: calc(15% + 911px);
+      z-index: -1;
+
+      @include respond-to('lg') {
+        display: block;
+      }
+    }
+
+    &--half-circle {
+      width: 280px;
+      height: 280px;
+      background: $color-blue-gray;
+      border-radius: 50%;
+      bottom: -272px;
+      right: calc(15% + 1012px);
+      z-index: -1;
+
+      @include respond-to('lg') {
+        display: block;
+      }
+    }
+  }
+
+  &__quarter {
+    width: 100%;
+    height: 100%;
+
+    &--1 {
+      background-color: $color-dark-green;
+      border-bottom-left-radius: 100%;
+    }
+
+    &--2 {
+      background-color: $color-secondary;
+      border-top-left-radius: 100%;
+    }
+
+    &--3 {
+      background-color: $color-accent;
+      border-bottom-right-radius: 100%;
+    }
+
+    &--4 {
+      background-color: $color-blue-gray;
+      border-top-right-radius: 100%;
+    }
+
+    &--tl {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      bottom: -92px;
+      right: calc(15% + 811px);
+      background-color: $color-secondary;
+      border-top-left-radius: 100%;
+      display: none;
+
+      @include respond-to('lg') {
+        display: block;
+      }
+
+      z-index: -1;
     }
   }
 }
